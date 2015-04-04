@@ -29,8 +29,8 @@ for lang in ${LANGS}; do
     else
 
         echo "Updating close for ${lang}"
-
-        cd ${lang} && (git fetch origin && git checkout origin/master) || true && cd ..
+#Change checkout to your branch
+        cd ${lang} && (git pull && git checkout v2.1) || true && cd ..
 
     fi;
 
