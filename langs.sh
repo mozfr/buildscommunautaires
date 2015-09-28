@@ -25,6 +25,8 @@ for lang in ${LANGS}; do
         echo "No repo for ${lang}, cloning new one"
 
         git clone ${GIT_ROOT}${lang}${GIT_PROJ} $lang || true
+        cd ${lang} && git checkout v2.1 || true && cd ..
+        
 
     else
 
