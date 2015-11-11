@@ -1,0 +1,16 @@
+export  SYSTEM_PARTITION=/dev/block/platform/msm_sdcc.1/by-name/system
+export DATA_PARTITION=/dev/block/platform/msm_sdcc.1/by-name/userdata
+export VARIANT=userdebug
+export PRODUCTION=1
+export B2G_UPDATER=1
+export B2G_UPDATE_CHANNEL=nightly
+export ENABLE_DEFAULT_BOOTANIMATION=true
+export GAIA_DEV_PIXELS_PER_PX=1.5
+export LOCALE_BASEDIR=locales/
+export LOCALES_FILE=locales/languages_all.json
+export GAIA_KEYBOARD_LAYOUTS="$((find gaia/apps/keyboard/js/layouts/*.js | sed -e 's|gaia/apps/keyboard/js/layouts/||g' -e 's/\.js$//g') | tr -s '\r\n' ',' | sed -e 's/,$//g')"
+export B2G_FOTA_DIRS="system/fonts system/b2g"
+export FOTA_FINGERPRINTS="ZTE/ZTE_OPENC/ZTE_P821A10:4.3/JLS36C/eng..20140806.064432:eng/test-keys"
+export recovery_fstab="device/t2m/flame/recovery.fstab"
+export B2G_FOTA_FULLIMG_PARTS="/system:system.img"
+export B2G_FOTA_DIRS="system/fonts system/b2g system/patches"
