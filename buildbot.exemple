@@ -1,0 +1,21 @@
+#######
+#Exemple of config (ZTE OPEN C FR branch 2.2)
+#/build/opencfr/2.2/B2G/ = where your have setup your directory like that : https://developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/Building/FOTA_community_builds
+#######
+
+open_c_fr_2point2 = BuildFactory()
+
+open_c_fr_2point2.addStep(ShellCommand(command=["make", "-C", "gaia/", "clean", "really-clean"], haltOnFailure=True, workdir="/bui
+ld/opencfr/2.2/B2G/"))
+open_c_fr_2point2.addStep(ShellCommand(command=["git", "pull"], haltOnFailure = True, workdir="/build/opencfr/2.2/B2G/"))
+open_c_fr_2point2.addStep(ShellCommand(command=["./repo", "sync"], haltOnFailure = True, workdir="/build/opencfr/2.2/B2G/", timeout=3600))
+open_c_fr_2point2.addStep(ShellCommand(command=["./langs.sh"], haltOnFailure = True, workdir="/build/opencfr/2.2/B2G/gaia/locales/", timeout=3600))
+open_c_fr_2point2.addStep(ShellCommand(command=["./build.sh"], haltOnFailure = True, workdir="/build/opencfr/2.2/B2G/", timeout=7200))
+open_c_fr_2point2.addStep(ShellCommand(command=["mkdir", "out/target/product/flame/system/patches"], haltOnFailure = False, workdir="/build/opencfr/2.2/B2G/", timeout=7200))
+open_c_fr_2point2.addStep(ShellCommand(command=["cp", "network_types.sh", "out/target/product/flame/system/patches/network_types.sh"], haltOnFailure = True, workdir="/build/opencfr/2.2/B2G/", timeout=7200))
+open_c_fr_2point2.addStep(ShellCommand(command=["./build.sh", "gecko-update-fota"], haltOnFailure = True, workdir="/build/opencfr/2.2/B2G/", timeout=7200))
+open_c_fr_2point2.addStep(ShellCommand(command=["rm", "-r", "/var/www/2.2/"], haltOnFailure = True, workdir="/build/opencfr/2.2/B2G/"))
+open_c_fr_2point2.addStep(ShellCommand(command=["mkdir", "/var/www/2.2/"], haltOnFailure = True, workdir="/build/opencfr/2.2/B2G/"))
+open_c_fr_2point2.addStep(ShellCommand(command=["./make_xml.sh"], haltOnFailure = True, workdir="/build/opencfr/2.2/B2G/"))
+open_c_fr_2point2.addStep(ShellCommand(command=["scp", "-r", "/var/www/2.2", "[your server]:[path in your server]"], haltOnFailure = True , timeout=10000))
+c['builders'].append(BuilderConfig(name="build_2.2_open_c_fr",slavenames=["slave"],factory=open_c_fr_2point2))
