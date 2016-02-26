@@ -1,0 +1,12 @@
+diff --git a/hal/gonk/GonkHal.cpp b/hal/gonk/GonkHal.cpp
+index e582847..3378251 100644
+--- a/hal/gonk/GonkHal.cpp
++++ b/hal/gonk/GonkHal.cpp
+@@ -691,6 +691,7 @@ GetScreenEnabled()
+ void
+ SetScreenEnabled(bool aEnabled)
+ {
++  SetKeyLightEnabled(aEnabled);
+   GetGonkDisplay()->SetEnabled(aEnabled);
+   sScreenEnabled = aEnabled;
+ }

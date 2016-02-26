@@ -1,0 +1,13 @@
+diff --git a/dom/system/gonk/nsINetworkService.idl b/dom/system/gonk/nsINetworkService.idl
+index 76523ff..1deed52 100644
+--- a/dom/system/gonk/nsINetworkService.idl
++++ b/dom/system/gonk/nsINetworkService.idl
+@@ -73,7 +73,7 @@ interface nsIUsbTetheringCallback : nsISupports
+   void usbTetheringEnabledChange(in jsval error);
+ };
+ 
+-[scriptable, function, uuid(055fd560-46ad-11e3-8f96-0800200c9a66)]
++[scriptable, function, uuid(055fd560-46da-11e3-8f96-0800200c9a66)]
+ interface nsIEnableUsbRndisCallback : nsISupports
+ {
+   /**
