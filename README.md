@@ -1,3 +1,3 @@
 build-firefoxos
 ===============
-Script of communauty build. See : https://developer.mozilla.org/en-US/Inbox/Building_FOTA_build_by_community_for_existing_Fire on mdn
+Script of communauty build. See : https://developer.mozilla.org/en-US/Firefox_OS/Building/FOTA_community_builds on mdn
